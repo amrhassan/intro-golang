@@ -1,0 +1,274 @@
+Introduction to Programming in Go
+
+Amr Hassan
+Software Engineer - CodeScalers
+
+* In the beginning... Go was created by those guys
+
+.image creators.jpg
+
+.image gopher.png
+
+* Its intended usage
+
+.image systems_language.jpg
+
+- A systems programming language
+
+- Mainly for the C/C++ crowd
+- But met acceptance from a much larger audience
+
+* Where it is now
+
+
+.image fiveyears.jpg  _ 500
+
+* Where it is now
+
+.image corps.png  _ 600
+
+.link https://github.com/golang/go/wiki/GoUsers List of Go users
+
+* What Go isn't
+
+* What Go isn't: A functional programming langauge
+
+- Programming is in the imperative model
+
+- Although functions are first class objects
+
+* What Go isn't: An object-oriented language
+
+- Although it has objects
+
+- with methods
+
+- and a limited way of doing inheritance
+
+* What Go isn't: A high-level language
+
+- Not that many high level abstractions
+
+* What Go is
+
+* What Go is: Compiled
+
+- Native hardware instructions
+- No overhead of a VM or an interpreter
+
+* What Go is: Statically-linked
+
+- Storage is cheap!
+- External dependencies are not worth the effort
+
+* What Go is: Statically-typed
+
+- Type-safety awesomeness
+- ... with type inference
+
+* What Go is: Memory-managed
+
+- Automatic memory allocation
+- A tracing garbage collector
+
+- With pointers
+- ... but no pointer arithmetic
+
+* What Go is: Pragmatic
+
+- Built out of specific programming use cases
+
+* What Go is: Minimalistic
+
+- Gentle learning curve
+- Human-readable source code
+
+* What Go is: Modern
+
+- Integrated web development stack and testing tools in the std libs and toolachain
+
+* What Go is: Concurrent
+
+- Native building blocks of concurrency built into the syntax
+
+* What Go is: A bit frustrating at first
+
+- Feels very lacking
+
+- Gets rewarding very quickly though.
+
+.image yoda.jpg
+
+* Syntax: Hello World
+
+.play hello_world.go
+
+* Syntax: Variables
+
+.play variables.go
+
+* Syntax: Variables with initializers
+
+.play var_init.go
+
+* Syntax: Shorthand variable declaration
+
+.play var_shorthand.go
+
+* Syntax: Primitive types
+
+  bool
+
+  string
+
+  int  int8  int16  int32  int64
+  uint uint8 uint16 uint32 uint64 uintptr
+
+  float32 float64
+
+  complex64 complex128
+
+and
+
+  byte // alias for uint8
+
+  rune // alias for int32 and it represents a Unicode code point
+
+* Syntax: Primitive types in action
+
+.play types.go
+
+* Syntax: Type Conversion
+
+  The expression T(v) converts the value v to the type T.
+
+.play type_conversion.go
+
+* Syntax: Loops - For Loop
+
+.play for_loop.go
+
+* Syntax: Loops - For Loop
+
+.play for_loop2.go
+
+* Syntax: Loops - For Loop
+
+.play for_loop3.go
+
+* Syntax: Loops - For Loop
+
+.play for_loop4.go
+
+* Syntax: Conditionals - If
+
+.play if.go
+
+* Syntax: Conditionals - If with pre-statement
+
+.play if2.go
+
+* Syntax: Conditionals - If/else
+
+.play if3.go
+
+* Syntax: Conditionals - Switch
+
+.play switch.go
+
+* Syntax: Conditionals - Switch case evaluation
+
+  switch i {
+  case 0:
+  case f():
+  }
+
+- The evaluation order of the switch case statements happens from top to bottom
+
+* Syntax: Defer
+
+.play defer.go
+
+* Syntax: Stacking defer statements
+
+.play defer2.go
+
+* Syntax: Pointers
+
+  The type *T is a pointer to a T value. Its zero value is nil.
+  var p *int
+  The & operator generates a pointer to its operand.
+  i := 42
+  p = &i
+  The * operator denotes the pointer's underlying value.
+  fmt.Println(*p) // read i through the pointer p
+  *p = 21         // set i through the pointer p
+  This is known as "dereferencing" or "indirecting".
+
+- And unlike C, Go has no pointer arithmetic.
+
+* Syntax: Structs
+
+.play structs.go
+
+* Syntax: Structs
+
+- Struct fields are accessible using the dot notation
+
+.play structs2.go
+
+* Syntax: Struct literal notation
+
+.play structs3.go
+
+* Syntax: Pointers to structs
+
+.play structs4.go
+
+* Syntax: Struct methods
+
+.play structs5.go
+
+* Syntax: Arrays
+
+.play arrays.go
+
+* Syntax: Slices
+
+  []T is a slice with elements of type T.
+
+.play slices.go
+
+
+* Syntax: Slicing slices
+
+.play slices2.go
+
+* Syntax: Appending to slices
+
+.play slices3.go
+
+* Syntax: Maps
+
+.play maps.go
+
+* Syntax: Map Literas
+
+.play maps2.go
+
+* Syntax: Map operations
+
+.play maps3.go
+
+* Syntax: Range loops
+
+- 21st century looping in Go
+
+.play range.go
+
+- Similar to Python sequence looping
+  for i, v in enumerate([1, 2, 3])
+- and map looping
+  for k, v in mapping.items()
+
+
