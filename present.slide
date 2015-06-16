@@ -1,7 +1,12 @@
 Introduction to Programming in Go
 
 Amr Hassan
-Software Engineer - CodeScalers
+
+* Apologies
+
+This might feel very rudimentary to you.
+
+But this is an "introduction" after all.
 
 * In the beginning... Go was created by those guys
 
@@ -9,19 +14,31 @@ Software Engineer - CodeScalers
 
 .image gopher.png
 
-* Its intended usage
+* Original intentions
 
 .image systems_language.jpg
 
-- A systems programming language
+Go has always been intended as a systems programming language (way at the bottom of the application development stack).
 
-- Mainly for the C/C++ crowd
-- But met acceptance from a much larger audience
+In systems programming you would usually use C/C++ or Python if performance is not an issue for you as productivity is.
+
+* Original intentions
+
+Born out of mutual hatred towards writing and compiling C++ code.
+
+To the surprise of the creators, Go has seen a much higher rate adoption from the scripting crowd (Python and Ruby), and most of the C/C++ people perceived the simplicity of the langauge as a step back.
 
 * Where it is now
 
-
 .image fiveyears.jpg  _ 500
+
+Seemingly everywhere
+
+Go is 5 years old now.
+
+To the surprise of its creators, it has grown tremendously in popularity.
+
+It's the new go-to platform for building cloud infrastructure.
 
 * Where it is now
 
@@ -31,89 +48,208 @@ Software Engineer - CodeScalers
 
 * What Go isn't
 
-* What Go isn't: A functional programming langauge
+* What Go isn't
 
-- Programming is in the imperative model
+Let's start by dialing down your expectations to a manageable level.
 
-- Although functions are first class objects
+* Go isn't a functional programming langauge
 
-* What Go isn't: An object-oriented language
+Although functions are first class objects
 
-- Although it has objects
+Go's adopted style is imperative through and through (sort of like C).
 
-- with methods
+Your code is executed for its side effects, and you reason about your logic as sequential commands executed to mutate some value within your scope of action.
 
-- and a limited way of doing inheritance
+Purely functional idioms in Go are really counter-productive in Go.
 
-* What Go isn't: A high-level language
+So if you're a functional programming hipster, get over it.
 
-- Not that many high level abstractions
+* Go isn't an object-oriented language
+
+Although Go has objects.. with methods
+
+And a limited way of doing inheritance (it's actually called composition)
+
+It's not OOP-driven, and won't scratch your pure OOP itch.
+
+Trying to construct rich type hierarchies like in Java or Python is very counter-productive.
+
+* Go isn't a high-level language
+
+You might think that's implicit with "systems language", but it isn't. _(cough)_ _(Rust)_ _(cough)_
+
+Go favors readability above all.
+
+Go Offers just enough syntactic sugar to be productive, but not too much.
+
+That is why a lot of the times verbosity and code simplicity are favored over complex succinctness.
 
 * What Go is
 
-* What Go is: Compiled
+* What Go is
 
-- Native hardware instructions
-- No overhead of a VM or an interpreter
+Hopefully I haven't lost you yet.
 
-* What Go is: Statically-linked
+* Go is Compiled
 
-- Storage is cheap!
-- External dependencies are not worth the effort
+Compiles to native hardware instructions that can run on the bear metal.
 
-* What Go is: Statically-typed
+No overhead of a VM or an interpreter.
 
-- Type-safety awesomeness
-- ... with type inference
+Comes at the price of doing cross-compilation when you need multiple OS support.
 
-* What Go is: Memory-managed
+Don't worry, most of the stdlib is cross-compatible.
 
-- Automatic memory allocation
-- A tracing garbage collector
+* Go executables are statically-linked
 
-- With pointers
-- ... but no pointer arithmetic
+Storage is cheap!
 
-* What Go is: Pragmatic
+External dependencies and shared binaries are not worth the effort.
 
-- Built out of specific programming use cases
+* Go executables are statically-linked
 
-* What Go is: Minimalistic
+Very attractive feature right now.
 
+.image staticlinking.jpg
+
+* Go is statically-typed (awesomeness)
+
+As you may know, I’m a bit biased towards static typing.
+
+I just think it’s a really neat idea as it makes my life a lot easier.
+
+* Go is statically-typed
+
+_What_is_static_typing_anyway?_
+
+Unfortunately static typing has always had this stigma of it being too verbose.
+
+This is not the case anymore in modern languages like Go, because of type inference.
+
+So you kind of get the best of both worlds there.
+
+* Go is memory-managed
+
+Go runtime is responsible for allocating memory for your objects.
+
+You never need to worry about the correct (or incorrect) number of bytes to allocate.
+
+Heap, stack or data segments are all fine with you.
+
+* Go is memory-managed
+
+Go has a tracing garbage collector.
+
+You never need to worry about who will deallocate your memory when.
+
+You just use objects, pass them around and then stop using them.
+
+* Go is memory-managed
+
+Unlike many other memory-managed programming languges, Go has memory pointers.
+
+But since pointer arithmetic is unallowed (easily), it's considered safe.
+
+Go is pragmatic
+
+Built by software engineers (not academics) out of specific programming use cases, not in a "lab" or by language designers.
+
+Covers most of the areas that the creators felt needed addressing in their day-to-day programming dendeavours.
+
+* Go is minimalistic
+
+Small set of orthogonal features that provide a a sweet spot balance between programmer productivity and simple software design.
+
+Implies:
 - Gentle learning curve
 - Human-readable source code
 
-* What Go is: Modern
+It’s very common for people to pick up the language in an afternoon and start building things immediately
 
-- Integrated web development stack and testing tools in the std libs and toolachain
+Huge plus!
 
-* What Go is: Concurrent
+* Go is modern
 
-- Native building blocks of concurrency built into the syntax
+As a fairly-new language, the stdlibs come with packages for doing many of the essential jobs that a programmer in this day would most likely require in her job.
 
-* What Go is: A bit frustrating at first
+Integrated web development stack and testing tools in the std libs and toolachain.
 
-- Feels very lacking
+So no excuse to not be test-driven!
 
-- Gets rewarding very quickly though.
+* Go is concurrent
+
+Dubbed a "concurrent language" because of support for native building blocks of concurrency built into the syntax
+
+Go's concurrency building blocks allow you to
+- write and execute code concurrently directly from the language syntax
+- establish managed (and safe) ways for communicating between concurrently executing code
+
+* Go is concurrent
+
+The Go runtime will multiplex your concurrent code for you on actual OS threads, free of charge.
+
+.image concurrency.jpg
+
+* Go is a bit frustrating at first
+
+First impressions of Go is that it's very lacking.
+
+Go is almost never anyone’s first programming language, so everyone comes to it with expectations and biases about how things should be done according to their system of belief and the kind of programming idiom they are used to.
+
+Since that Go was built out of frustration with the current state of things, it's meant to disrupt the way you program.
+
+* Go is a bit frustrating at first
+
+You shouldn't give into that initial frustration.
+
+Because it gets rewarding very quickly.
 
 .image yoda.jpg
+
+* Syntax
+
+* Syntax
+
+Most of these examples are derived from the official tour of Go on golang.org.
+
+So if they seem too familiar, that’s probably the reason.
 
 * Syntax: Hello World
 
 .play hello_world.go
 
+Execution starts in the main() in the "main" package.
+
+UTF-8 source code files. No special headers. No literal escaping.
+
+You can even declare unicode symbols.
+  Ω(DoSomething()).Should(Equal("foo"))
+
+You probably shouldn't do that. Nice to know that you can though.
+
+"fmt" is where you find string formatting functions.
+
+"fmt" name is Rob Pike's doing.
+
 * Syntax: Variables
 
 .play variables.go
+
+Variables can be declared in function scope of package scope.
 
 * Syntax: Variables with initializers
 
 .play var_init.go
 
+Type inference in action!
+
 * Syntax: Shorthand variable declaration
 
 .play var_shorthand.go
+
+Only inside a function body.
+
+Both declarations are identical.
 
 * Syntax: Primitive types
 
@@ -134,35 +270,57 @@ and
 
   rune // alias for int32 and it represents a Unicode code point
 
+Zero values for booleans is `false` and for numerical types an actual 0.
+
 * Syntax: Primitive types in action
 
 .play types.go
 
 * Syntax: Type Conversion
 
+Unlike in a lot of other languages where automatic conversion to types with wider percision is allowed, type conversions in Go must be explicit.
+
   The expression T(v) converts the value v to the type T.
 
 .play type_conversion.go
+
+* Syntax: Loops
+
+* Syntax: Loops
+
+Your for-s, foreach-es, and your while-s.
 
 * Syntax: Loops - For Loop
 
 .play for_loop.go
 
+Very C.
+
+Parens are not allowed. Not even optional!
+
+Body brakcets are obligatory.
+
 * Syntax: Loops - For Loop
 
 .play for_loop2.go
 
-* Syntax: Loops - For Loop
+* Syntax: Loops - While Loop
 
 .play for_loop3.go
 
-* Syntax: Loops - For Loop
+* Syntax: While (TRUE) Loop
 
 .play for_loop4.go
 
 * Syntax: Conditionals - If
 
 .play if.go
+
+Also very C.
+
+Also body brakcets are obligatory
+
+Again, parens are not even optional.
 
 * Syntax: Conditionals - If with pre-statement
 
@@ -174,6 +332,8 @@ and
 
 * Syntax: Conditionals - Switch
 
+Switch is a fancy `if` with multiple if/else clauses.
+
 .play switch.go
 
 * Syntax: Conditionals - Switch case evaluation
@@ -183,11 +343,39 @@ and
   case f():
   }
 
-- The evaluation order of the switch case statements happens from top to bottom
+The evaluation order of the switch case statements happens from top to bottom.
+
+* Syntax: Functions
+
+The main building block in Go.
+
+You can create nested closures using the `func` keyword.
+
+.play functions.go
+
+* Syntax: Functions
+
+The type of function values is:
+
+  func([argument_list]) [return_type]
+
+* Syntax: Higher order functions
+
+
+We can use function types to declare some higher order functions like
+
+.play functions2.go
+
 
 * Syntax: Defer
 
+An awesome Go-first!
+
 .play defer.go
+
+Push clean-up code to be executed before the function returns in LIFO.
+
+Go's way of making up for not managing resources for you other than memory and CPU.
 
 * Syntax: Stacking defer statements
 
@@ -195,25 +383,44 @@ and
 
 * Syntax: Pointers
 
-  The type *T is a pointer to a T value. Its zero value is nil.
+A Go pointer value is nothing but a typed memory addresses, much like a C pointer.
+
+  *T is a pointer to a T value
+
+The zero value of a pointer is nil (no garbage values in Go).
+
+* Syntax: Pointers
+
+This is how you declare a pointer.
+
   var p *int
-  The & operator generates a pointer to its operand.
+
+The `&` operator generates a pointer to its operand.
+
   i := 42
   p = &i
-  The * operator denotes the pointer's underlying value.
-  fmt.Println(*p) // read i through the pointer p
-  *p = 21         // set i through the pointer p
-  This is known as "dereferencing" or "indirecting".
 
-- And unlike C, Go has no pointer arithmetic.
+The `*` operator denotes the pointer's underlying value.
+
+  fmt.Println(*p) // read i through the pointer p
+
+Dereferencing a pointer is also via the `*` operator.
+
+  *p = 21         // set i through the pointer p
+
+Unlike C, Go has no pointer arithmetic.
 
 * Syntax: Structs
+
+The the way of building heterogeneous aggregate custom types in Go.
+
+That's fancy talk for saying it's a collection of fields of different types.
 
 .play structs.go
 
 * Syntax: Structs
 
-- Struct fields are accessible using the dot notation
+Struct fields are accessible using the dot notation
 
 .play structs2.go
 
@@ -225,34 +432,101 @@ and
 
 .play structs4.go
 
+Quickly instantiate and populate with values a struct all at once
+
+* Syntax: Structs are your main objects
+
+If you’re coming from a strictly OOP language like Java, the only thing you would be thinking about in your program design, is classes.
+
+Classes this, classes that, classes everywhere.
+
+* Syntax: Structs are your main objects
+
+Go creators did not like that approach where everything had to be a class.
+
+Sometimes, the simplest most correct way to express your computation, is just as a function.
+
+Go fell back to the minimalistic approach of C, where your data structures are just pure aggregate data.
+
+And you can as an added bonus, you can specify type-specific operations on each of your custom types.
+
+It’s like how in C you would declare `struct` s and then declare functions that all accept a pointer to the `struct` as their first argument by  convention.
+
 * Syntax: Struct methods
+
+Two argument lists. First one only has the "receiver" argument. Second one has zero or more argumetns of your method.
+
+Dot notation for invoking struct methods on the receiver.
 
 .play structs5.go
 
 * Syntax: Arrays
 
+The way of constructing homogeneous aggregate types in Go (a sequence of values of the same type).
+
+Analogous to boring C arrays.
+
+Fixed in size.
+
+Size is part of the type.
+
 .play arrays.go
 
 * Syntax: Slices
 
+Slices are arrays on steroids.
+
+Go makes up for the fact that it doesn’t let you do pointer arithmetic, by giving you this much cooler and easier to use concept of slices.
+
+A slice is more or less a view into a subset of an array.
+
   []T is a slice with elements of type T.
+
+A slice's size is not reflected in its type.
+
+* Syntax: Slices
+
+The slice literal notation lets you create slices backed by anonymous arrays very easily and populate them with values on the spot.
+
+Slices are used just like you would use an array, except for a couple of extra very neat features.
 
 .play slices.go
 
+* Syntax: Slicing slices
+
+You can slice slices!
+
+Very similar to sequence slicing in Python (except that negative indices are not supported).
+
+You can slice into a slice to get a new view into its backing array, or you can slice into an already existing array to get a slice from that.
+
+.play slices2.go
 
 * Syntax: Slicing slices
 
-.play slices2.go
+The zero value of a slice is nil.
 
 * Syntax: Appending to slices
 
 .play slices3.go
 
+* Syntax: Appending to slices
+
+If the backing array of the slice is too short, then append() would create a new backing array big enough and use that in the returned slice.
+
 * Syntax: Maps
+
+The native type-safe associative array in Go is the hash map, almost identical to the native map type in Python.
+
+* Syntax: Maps
+
+You must create a map using the make() function before usage, because the zero value of map is nil and using that as a map causes in an error.
+
+You can create maps from any type to any type.
 
 .play maps.go
 
-* Syntax: Map Literas
+* Syntax: Map Literals
 
 .play maps2.go
 
@@ -262,13 +536,265 @@ and
 
 * Syntax: Range loops
 
-- 21st century looping in Go
+21st century looping in Go
 
 .play range.go
 
-- Similar to Python sequence looping
+Similar to Python sequence looping
+
   for i, v in enumerate([1, 2, 3])
-- and map looping
+
+and map looping
+
   for k, v in mapping.items()
 
+
+* The Zen of Go
+
+* The Zen of Go: Interfaces
+
+Go resists this:
+- subtype polymorphism (inheritance).
+- parametric-type polymorphism (generics).
+
+It instead emphasizes polymorphism via _interfaces_.
+
+* The Zen of Go: Interfaces
+
+Go interfaces are small.
+
+  type Stringer interface {
+      String() string
+  }
+
+A Stringer can pretty print itself.
+Anything that implements String is a Stringer.
+
+Interfaces are implemented _implicitly_.
+
+* The Zen of Go: Interfaces
+
+Interfaces are types.
+
+.play interface.go
+
+* The Zen of Go: Interfaces
+A Sorting example
+
+.play sorting.go
+
+* The Zen of Go: Error handling
+
+* The Zen of Go: Error handling
+
+Unchecked exceptions are evil.
+
+This is not scripting. You're building "robust" infrastructure software.
+
+"Let it crash" cannot be the default way of handling errors.
+
+Every computation that can fail must be executed with proper "error handling code".
+
+* The Zen of Go: Error handling
+
+Memorize this pattern. You're gonna use it so much it'll haunt you in your dreams.
+
+.play -edit faulty.go
+
+* The Zen of Go: Error handling
+
+Go chose simplest approach possible to error handling.
+
+Errors are plain regular values that implement the error interface.
+
+  type error {
+    Error() string
+  }
+
+You should either handle an error or propagate it upwards.
+
+* The Zen of Go: Error handling
+
+Unexpected errors should not be expected
+
+.play -edit unexpectederror.go
+
+* The Zen of Go: Error handling
+
+This is so common that there's a pattern for it.
+
+.play -edit unexpectederror2.go
+
+* The Zen of Go: Error handling
+
+Having to handle every each possible error case manually is a common first-day complaint in Go
+
+You get used to it very quickly.
+
+You will definitely feel its reward when you run your code and find it correct and not crashing the first time.
+
+* The Zen of Go: Packages
+
+* The Zen of Go: Packages
+
+Packages are one more thing that newcomers clash against.
+
+Go comes with its own way of doing packages and file hierarchy for source code.
+
+Just stop fighting it.
+
+* The Zen of Go: Packages
+
+The first thing you'll do after installing the Go SDK is setting up your $GOPATH.
+
+$GOPATH is structured like so:
+
+  |- src
+  |- bin
+  |- pkg
+
+The import path of your packages is going to be the relative path under your $GOPATH/src directory.
+
+Doing
+
+  import "coderize/awesomelib"
+
+imports the package from $GOPATH/src/coderize/awesomelib as the awesomelib package
+
+It's as simple as that. Don't invent your own system.
+
+* The Zen of Go: Visibility
+
+Code visibility is only on the package level.
+
+Only symbols starting with an upper class letter are exported.
+
+.code package.go
+
+* The Zen of Go: Documentation
+
+* The Zen of Go: Documentation
+
+No special syntax.
+
+Code documentation should be readable to humans in source code text format.
+
+  // Accepts an io.Reader and does the agreed-upon computation and returns the result
+  // or a descriptive error if something went wrong.
+  func ExportedFunction(reader io.Reader) (Result, error)
+
+No special markup tags to describe parameters or return types.
+
+If you make sure all your exported symbols are documented, Godoc can render that into perfectly presentable HTML for you.
+
+.link http://godoc.org/ godoc
+
+* The Zen of Go: Concurrency
+
+* The Zen of Go: Concurrency
+
+I've saved the best for last.
+
+Concurrency is a session topic on its own.
+
+Let's just skim over of what Go has to offer.
+
+* The Zen of Go: Concurrency
+
+A _goroutine_ is a lightweight thread managed by the Go runtime.
+
+Go routines are multiplexed over multiple actual OS threads by the runtime.
+
+  go f(x, y, z)
+
+starts a new goroutine running
+
+  f(x, y, z)
+
+* The Zen of Go: Concurrency
+
+.play goroutines.go
+
+* The Zen of Go: Concurrency
+
+A _channel_ is a typed synchronized queue.
+
+  boolChannel := make(chan bool)  // I created a boolean channel of type "chan bool"
+
+Channels are utilized for communication and synchronization between running goroutines.
+
+
+There are three things you can do on a channel: send stuff, receive stuff, or close the channel.
+
+  boolChan <- = false
+  boolChan <- = true
+  boolChan <- = true
+
+  close(boolChan)
+
+I just sent a "false" and two "true"s to the channel then closed it.
+
+* The Zen of Go: Concurrency
+
+On the receiving end:
+
+  // Listens on the given channel for three incoming boolean messages and returns true if any one
+  // was true
+  func getMyBooleans(myChannel chan bool) bool {
+      firstMessage, isOpen := <- boolChan
+      if !isOpen {
+        return false
+      }
+      secondMessage, isOpen := <- boolChan
+      if !isOpen {
+        return firstMessage
+      }
+      thirdMessage, isOpen := <- boolChan
+      if !isOpen {
+        return firstMessage | secondMessage
+      }
+      return firstMessage | secondMessage | thirdMessage
+  }
+
+* The Zen of Go: Concurrency
+
+Too verbose? range to the rescue:
+
+  // Listens on the given channel for incoming boolean messages and returns true if any one
+  // was true
+  func getMyBooleans(myChannel chan bool) bool {
+      message := false
+      for incomingMessage := myChannel {
+        message |= incomingMessage
+      }
+      return message
+  }
+
+* The Zen of Go: Concurrency
+
+Channel sends and receives are blocking operations. So they're perfect for doing "lock-free" synchronization.
+
+* The Zen of Go: Concurrency
+
+Here's a really dumb example that takes too much time to compute
+
+.play channel_locking.go
+
+* The Zen of Go: Concurrency
+
+Same example but now made faster using parallelism via goroutines and channels.
+
+.play channel_locking2.go
+
+* Where to Go from here (pun intended)
+* Where to Go from here (pun intended)
+
+There are still several things that I did not have the time to cover in Go.
+
+I suggest checking out the links below.
+
+.link http://tour.golang.org/ Take the Go tour yourself
+.link https://talks.golang.org/2014/go4gophers.slide Go for Gophers (by Andrew Gerrand)
+.link https://www.youtube.com/watch?feature=player_detailpage&v=f6kdp27TYZs Go Concurrency Patterns (by the awesome Rob Pike)
+.link http://www.reddit.com/r/golang Go subreddit
 
