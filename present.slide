@@ -60,7 +60,7 @@ Go's adopted style is imperative through and through (sort of like C).
 
 Your code is executed for its side effects, and you reason about your logic as sequential commands executed to mutate some value within your scope of action.
 
-Purely functional idioms in Go are really counter-productive in Go.
+Purely functional idioms in Go are really counter-productive.
 
 So if you're a functional programming hipster, get over it.
 
